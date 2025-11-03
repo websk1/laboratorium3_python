@@ -29,7 +29,9 @@ def main():
                 print("Brak książek w bibliotece.")
             else:
                 print("\nLista książek:")
-                for i, book in enumerate(books, start=1):
+                i = 0
+                for book in books:
+                    i += 1
                     print(f"{i}. {book}")
 
         elif choice == "3":
@@ -54,6 +56,8 @@ def main():
 
         else:
             print(f"Akcja {choice} nie istnieje. Spróbuj ponownie.")
+
+        input('\nWciśnij Enter, aby kontunuować')
 
 
 
