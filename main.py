@@ -3,6 +3,7 @@ def main():
     library = Library()
 
     while True:
+        # Wyświetlanie menu
         print("\nWybierz akcję")
         print("1. Dodaj książkę")
         print("2. Wyświetl książki")
@@ -13,6 +14,7 @@ def main():
 
         choice = input("Wybierz opcję (1–6): ").strip()
 
+        # Tworzenie obiektu książki i dodanie do biblioteki
         if choice == "1":
             title = input("Tytuł: ").strip()
             author = input("Autor: ").strip()
@@ -23,6 +25,7 @@ def main():
             book = Book(title, author, int(year))
             print(library.add_book(book))
 
+        # Wypisanie książek
         elif choice == "2":
             books = library.list_books()
             if not books:
@@ -34,6 +37,7 @@ def main():
                     i += 1
                     print(f"{i}. {book}")
 
+        #Szukanie książki po tytule
         elif choice == "3":
             title = input("Podaj tytuł książki: ").strip()
             book = library.find_by_title(title)
@@ -42,14 +46,17 @@ def main():
             else:
                 print("Nie znaleziono takiej książki.")
 
+        # Wypożyczanie ksiązki po tytule
         elif choice == "4":
             title = input("Podaj tytuł książki do wypożyczenia: ").strip()
             print(library.borrow_book(title))
 
+        # Zwrot ksiązki po tytule
         elif choice == "5":
             title = input("Podaj tytuł książki do zwrotu: ").strip()
             print(library.return_book(title))
 
+        # Koniec
         elif choice == "6":
             print("Zakończono.")
             break
